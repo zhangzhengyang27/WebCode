@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<div id="app1"></div>
+<div id="app2"></div>
+
+<script src="./../js/react.development.js"></script>
+<script src="./../js/react-dom.development.js"></script>
+<script src="./../js/babel.min.js"></script>
+<script type="text/babel">
+    function Liao() {
+        return (
+            <div>
+                <h2>撩课</h2>
+                <img src="img/logo.jpg" width="200"/>
+            </div>
+        )
+    }
+
+    ReactDOM.render(<Liao/>, document.getElementById('app'))
+</script>
+<script type="text/babel">
+    function Liao(props) {
+        return (
+            <div>
+                <h2>我叫：{props.name}, 性别：{props.gender}, 我有三个儿子：{props.collges}</h2>
+                <img src="img/logo.jpg" width="200"/>
+            </div>
+        )
+    }
+
+    let vDom = <Liao name="撩课" gender="女" collges={["H5", "JAVA", "Python"]}/>;
+    ReactDOM.render(vDom, document.getElementById('app1'));
+</script>
+<script type="text/babel">
+    function Name(props) {
+        return <h1>我叫：{props.name}</h1>
+    }
+
+    function Gender(props) {
+        return <div>我叫：{props.gender}</div>
+    }
+
+    function Colleges(props) {
+        return <h4>我有三个儿子：{props.colleges}</h4>
+    }
+
+    function Liao() {
+        return (
+           <div>
+               <Name name="撩课学院"/>
+               <Gender gender="女"/>
+               <Colleges colleges={["H5", "JAVA", "Python"]} />
+           </div>
+        )
+    }
+
+    ReactDOM.render(
+        <Liao />,
+        document.getElementById('app2')
+    )
+</script>
+</body>
+</html>

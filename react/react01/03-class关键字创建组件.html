@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class关键字创建组件</title>
+</head>
+<body>
+    <div id="app"></div>
+
+<script src="./../js/react.development.js"></script>
+<script src="./../js/react-dom.development.js"></script>
+<script src="./../js/babel.min.js"></script>
+<script type="text/babel">
+    class Liao extends React.Component{
+        render(){
+            return (
+                <div>
+                    <h2>我叫：{this.props.name}, 性别：{this.props.gender}, 我有三个儿子：{this.props.collges}</h2>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(
+        <Liao name="撩课" gender="女" collges={["H5", "JAVA", "Python"]} />,
+        document.getElementById('app')
+    )
+</script>
+</body>
+</html>

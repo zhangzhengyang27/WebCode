@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div id="app1"></div>
+    <div id="app2"></div>
+    <div id="app3"></div>
+
+    <script src="./../js/react.development.js"></script>
+    <script src="./../js/react-dom.development.js"></script>
+    <script src="./../js/babel.min.js"></script>
+    <script type="text/babel">
+    // a. 多重标签嵌套
+    
+    ReactDOM.render(
+    <div className="box">
+        <h2 className="title">多重标签嵌套</h2>
+        <img src="img/logo.jpg" alt="撩课" width="300"/>
+        <p>撩课学院</p>
+    </div>
+    ,document.getElementById('app'))
+</script>
+    <script type="text/babel">
+    // b. jsx中的变量, 表达式要写在{}内
+    
+    let str = '撩课';
+    ReactDOM.render(
+    <div>
+        <span>{str}</span>
+        <p>100+10/2*3-10={100+10/2*3-10}</p>
+    </div>
+    ,document.getElementById('app1'))
+</script>
+    <script type="text/babel">
+    // c. 内联样式通过对象方式引入
+
+    let myStyle = {
+    backgroundColor: 'green',
+    color: 'red',
+    fontSize: 40
+    };
+
+    ReactDOM.render(
+    <div>
+        {
+        <div style={myStyle}>客官，颜色来了！</div>
+        }
+    </div>
+    ,document.getElementById('app2')
+    )
+</script>
+    <script type="text/babel">
+        // d. 数组遍历
+        let dataArr = [
+            { name: '周杰伦', age: 38 },
+            { name: '谢霆锋', age: 40 },
+            { name: '邓紫棋', age: 58 },
+            { name: '刘德华', age: 10 },
+            { name: '张杰', age: 2 }
+        ];
+
+        let vDOM = (
+            <div>
+                <ul>
+                    {
+                        dataArr.map(
+                            (data, index) =>
+                                <li key={index}> 编号：{index + 1}---姓名：{data.name} --- 年龄：{data.age}</li>
+                        )
+                    }
+                </ul>
+            </div>
+        );
+
+        ReactDOM.render(vDOM, document.getElementById('app3'));
+    </script>
+</body>
+
+</html>
