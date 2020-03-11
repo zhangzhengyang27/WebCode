@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ref的使用</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="./js/react.development.js"></script>
+<script src="./js/react-dom.development.js"></script>
+<script src="./js/prop-types.js"></script>
+<script src="./js/babel.min.js"></script>
+<script type="text/babel">
+    class CustomInput extends React.Component{
+        constructor(props){
+            super(props);
+
+            // 绑定ref
+            this.youInput = React.createRef();
+            this.youBtn = React.createRef();
+        }
+        render(){
+            return (
+                <div>
+                    <input ref={this.youInput} type="text" placeholder="请输入内容"/>
+                    <input ref={this.youBtn} type="button" value="获取焦点" onClick={()=>this.focusTextInput()}/>
+                </div>
+            )
+        }
+
+        focusTextInput(){
+            console.log(this.youBtn);
+
+            console.log(this.youInput.current.value);
+        }
+    }
+
+    ReactDOM.render(
+        <CustomInput />,
+        document.getElementById('app')
+    );
+</script>
+</body>
+</html>
